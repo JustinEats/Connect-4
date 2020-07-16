@@ -1,37 +1,82 @@
-/* game board table */
+body {
+	background-color: rgb(255, 254, 244);
+}
 
 #board td {
 	width: 50px;
 	height: 50px;
 	border: solid 1px #666;
-	position: relative; /*Allows this to be the base for .piece positioning*/
+	position: relative;
 }
 
-/* pieces are div within game table cells: draw as colored circles */
-
-#game {
-	margin: auto;
-	width: 50%;
+.game {
+	display: flex;
+	justify-content: center;
 }
 
+#player-turn {
+	display: flex;
+	justify-content: center;
+	font-size: 35px;
+	margin-top: 20px;
+}
+
+#rules {
+	display: flex;
+	justify-content: center;
+	font-size: 13px;
+	margin-bottom: 20px;
+	font-style: oblique;
+	color: orangered;
+}
+
+#game-winner {
+	background-color: #ffe600;
+	border-radius: 5px 10px 15px 20px;
+	display: inline-block;
+	justify-content: center;
+}
+
+#the-matrix {
+	width: 100%;
+	text-align: center;
+}
+
+#reset {
+	display: flex;
+	justify-content: center;
+}
+
+button {
+	border: none;
+	background: #55cc4b;
+	color: #fafafa !important;
+	font-weight: 70;
+	padding: 10px;
+	text-transform: uppercase;
+	border-radius: 6px;
+	display: inline-block;
+}
 .piece {
-	margin: 5px;
+	margin: 6px;
 	width: 40px;
 	height: 40px;
-	border-radius: 50%;
+	border-radius: 50px;
 	top: 0;
 	right: 0;
 	left: 0;
 	bottom: 0;
 	position: absolute;
-	animation-duration: 1s;
+	animation-duration: 0.7s;
 	animation-name: fallDown;
 }
 
+.hide {
+	visibility: hidden;
+}
 @keyframes fallDown {
-	/*Would need to be updated with a bigger board, creates falling animation*/
 	from {
-		margin-top: -500%;
+		margin-top: -400%;
 	}
 	to {
 		margin-bottom: 0%;
@@ -39,17 +84,145 @@
 }
 
 .p1 {
-	background-color: red;
+	background-color: #f55757;
 }
 
 .p2 {
-	background-color: blue;
+	background-color: #293df3;
+}
+
+.playerTurn1 {
+	color: #f55757;
+}
+
+.playerTurn2 {
+	color: #293df3;
 }
 
 #column-top td {
-	border: dashed 1px lightgray;
+	border: dashed 2px #84db32;
 }
 
 #column-top td:hover {
-	background-color: gold;
+	background-color: #78e71100;
+}
+#green {
+	color: #84db32;
+	font-size: 16px;
+}
+
+td {
+	margin: 5px;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background-color: white;
+}
+
+/*  At the bottom, I got these online if you're curious.
+/////////////////////// */
+
+@keyframes tipsy {
+	0 {
+		transform: translateX(-50%) translateY(-50%) rotate(0deg);
+	}
+	100% {
+		transform: translateX(-50%) translateY(-50%) rotate(360deg);
+	}
+}
+
+a {
+	color: #ffffff;
+	-webkit-text-stroke-width: 2px;
+	-webkit-text-stroke-color: black;
+	text-shadow: 0 20px 25px #2e2e31, 0 40px 60px #2e2e31;
+	font-size: 80px;
+	font-weight: bold;
+	text-decoration: none;
+	letter-spacing: -3px;
+	margin: 0;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translateX(-50%) translateY(-50%);
+}
+
+a:before,
+a:after {
+	content: '';
+	padding: .9em .4em;
+	position: absolute;
+	left: 50%;
+	width: 100%;
+	top: 50%;
+	display: block;
+	border: 15px solid red;
+	transform: translateX(-50%) translateY(-50%) rotate(0deg);
+	animation: 10s infinite alternate ease-in-out tipsy;
+}
+
+a:before {
+	border-color: #ffe600 #ffe600 rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
+	z-index: -1;
+}
+
+a:after {
+	border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #ffe600 #ffe600;
+	box-shadow: 25px 25px 25px rgba(58, 58, 53, 0.7);
+}
+
+/* ///////////////////// */
+
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+
+svg {
+	display: block;
+	font: 10.5em 'Montserrat';
+	width: 40%;
+	height: 40%;
+	margin: 0 auto;
+}
+
+.text-copy {
+	fill: none;
+	stroke: white;
+	stroke-dasharray: 6% 29%;
+	stroke-width: 5px;
+	stroke-dashoffset: 0%;
+	animation: stroke-offset 5.5s infinite linear;
+}
+
+.text-copy:nth-child(1) {
+	stroke: #f55757;
+	animation-delay: -1;
+}
+
+.text-copy:nth-child(2) {
+	stroke: #293df3;
+	animation-delay: -2s;
+}
+
+.text-copy:nth-child(3) {
+	stroke: #f55757;
+	animation-delay: -3s;
+}
+
+.text-copy:nth-child(4) {
+	stroke: #293df3;
+	animation-delay: -4s;
+}
+
+.text-copy:nth-child(5) {
+	stroke: #f55757;
+	animation-delay: -5s;
+}
+.text-copy:nth-child(6) {
+	stroke: #293df3;
+	animation-delay: -5s;
+}
+
+@keyframes stroke-offset {
+	100% {
+		stroke-dashoffset: -35%;
+	}
 }
