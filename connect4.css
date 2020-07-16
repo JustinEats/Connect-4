@@ -51,10 +51,9 @@ button {
 	border: none;
 	background: #55cc4b;
 	color: #fafafa !important;
-	font-weight: 70;
-	padding: 10px;
+	font-weight: 90;
 	text-transform: uppercase;
-	border-radius: 6px;
+	border-radius: 10px;
 	display: inline-block;
 }
 .piece {
@@ -178,8 +177,8 @@ a:after {
 svg {
 	display: block;
 	font: 10.5em 'Montserrat';
-	width: 40%;
-	height: 40%;
+	width: 35%;
+	height: 35%;
 	margin: 0 auto;
 }
 
